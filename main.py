@@ -3153,9 +3153,9 @@ class NewsAnalyzer:
                     feishu_webhook,
                     headers={"Content-Type": "application/json"},
                     data=json.dumps({"msg_type": "text", "content": {
-                        "total_titles": total_titles,
+                        "total_titles": 21,
                         "timestamp": now.strftime("%Y-%m-%d %H:%M:%S"),
-                        "report_type": report_type,
+                        "report_type": "dfgh",
                         "text": "测试内容",
                     }})
                 print(f"飞书测试消息发送结果：{response.status_code}")
