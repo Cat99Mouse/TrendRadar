@@ -3162,8 +3162,8 @@ class NewsAnalyzer:
                     data=json.dumps(data)
                     )
                 print(f"飞书测试消息发送结果：{response.status_code}")
-                 print("飞书测试消息如下：\n)
-                 print(data)
+                print("飞书测试消息如下：\n)
+                print(data)
             except Exception as e:
                 print(f"飞书测试消息发送失败：{str(e)}")
 
