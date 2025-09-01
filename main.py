@@ -3143,31 +3143,29 @@ class NewsAnalyzer:
 
 
         # add
-        # 临时添加：强制发送飞书测试消息
-        import requests
-        import json
-        feishu_webhook = "https://www.feishu.cn/flow/api/trigger-webhook/f39dcffd2e60f3777bff2ac2ba7e875d"  # 直接粘贴，测试用（后续可删除）
-        if feishu_webhook:
-            try:
-                now = get_beijing_time()
-                data={"msg_type": "text", "content": {
-                        "total_titles": 21,
-                        "timestamp": now.strftime("%Y-%m-%d %H:%M:%S"),
-                        "report_type": "dfgh",
-                        "text": "测试内容",
-                    }}
-                response = requests.post(
-                    feishu_webhook,
-                    headers={"Content-Type": "application/json"},
-                    data=json.dumps(data)
-                    )
-                print(f"飞书测试消息发送结果：{response.status_code}")
-                print("飞书测试消息如下：\n")
-                print(data)
-            except Exception as e:
-                print(f"飞书测试消息发送失败：{str(e)}")
-
-
+        # # 临时添加：强制发送飞书测试消息
+        # import requests
+        # import json
+        # feishu_webhook = "https://www.feishu.cn/flow/api/trigger-webhook/f39dcffd2e60f3777bff2ac2ba7e875d"  # 直接粘贴，测试用（后续可删除）
+        # if feishu_webhook:
+        #     try:
+        #         now = get_beijing_time()
+        #         data={"msg_type": "text", "content": {
+        #                 "total_titles": 21,
+        #                 "timestamp": now.strftime("%Y-%m-%d %H:%M:%S"),
+        #                 "report_type": "dfgh",
+        #                 "text": "测试内容",
+        #             }}
+        #         response = requests.post(
+        #             feishu_webhook,
+        #             headers={"Content-Type": "application/json"},
+        #             data=json.dumps(data)
+        #             )
+        #         print(f"飞书测试消息发送结果：{response.status_code}")
+        #         print("飞书测试消息如下：\n")
+        #         print(data)
+        #     except Exception as e:
+        #         print(f"飞书测试消息发送失败：{str(e)}")
 
 
         # add
