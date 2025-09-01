@@ -3138,6 +3138,20 @@ class NewsAnalyzer:
     ) -> bool:
         """统一的通知发送逻辑，包含所有判断条件"""
         has_webhook = self._has_webhook_configured()
+        # 临时添加：强制发送飞书测试消息
+        import requests
+        import json
+        feishu_webhook = "https://www.feishu.cn/flow/api/trigger-webhook/f39dcffd2e60f3777bff2ac2ba7e875d"  # 直接粘贴，测试用（后续可删除）
+        if feishu_webhook:
+            try:
+                response = requests.post(
+                    feishu_webhook,
+                    headers={"Content-Type": "application/json"},
+                    data=json.dumps({"msg_type": "text", "content": {"text": "current模式测试消息"}})
+                )
+                print(f"飞书测试消息发送结果：{response.status_code}")
+            except Exception as e:
+                print(f"飞书测试消息发送失败：{str(e)}")
 
         if (
             CONFIG["ENABLE_NOTIFICATION"]
