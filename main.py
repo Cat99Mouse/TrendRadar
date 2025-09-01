@@ -3150,16 +3150,16 @@ class NewsAnalyzer:
         if feishu_webhook:
             try:
                 now = get_beijing_time()
-                data=json.dumps({"msg_type": "text", "content": {
+                data={"msg_type": "text", "content": {
                         "total_titles": 21,
                         "timestamp": now.strftime("%Y-%m-%d %H:%M:%S"),
                         "report_type": "dfgh",
                         "text": "测试内容",
-                    }})
+                    }}
                 response = requests.post(
                     feishu_webhook,
                     headers={"Content-Type": "application/json"},
-                    data=data
+                    data=json.dumps(data)
                     )
                 print(f"飞书测试消息发送结果：{response.status_code}")
                  print(f"飞书测试消息如下：\n{data}")
