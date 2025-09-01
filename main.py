@@ -3157,7 +3157,7 @@ class NewsAnalyzer:
                         "timestamp": now.strftime("%Y-%m-%d %H:%M:%S"),
                         "report_type": "dfgh",
                         "text": "测试内容",
-                    }})
+                    }}))
                 print(f"飞书测试消息发送结果：{response.status_code}")
             except Exception as e:
                 print(f"飞书测试消息发送失败：{str(e)}")
