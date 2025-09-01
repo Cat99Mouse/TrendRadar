@@ -3152,8 +3152,12 @@ class NewsAnalyzer:
                 response = requests.post(
                     feishu_webhook,
                     headers={"Content-Type": "application/json"},
-                    data=json.dumps({"msg_type": "text", "content": {"text": "current模式测试消息"}})
-                )
+                    data=json.dumps({"msg_type": "text", "content": {
+                        "total_titles": total_titles,
+                        "timestamp": now.strftime("%Y-%m-%d %H:%M:%S"),
+                        "report_type": report_type,
+                        "text": "测试内容",
+                    }})
                 print(f"飞书测试消息发送结果：{response.status_code}")
             except Exception as e:
                 print(f"飞书测试消息发送失败：{str(e)}")
