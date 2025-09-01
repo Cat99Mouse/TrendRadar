@@ -3149,6 +3149,7 @@ class NewsAnalyzer:
         feishu_webhook = "https://www.feishu.cn/flow/api/trigger-webhook/f39dcffd2e60f3777bff2ac2ba7e875d"  # 直接粘贴，测试用（后续可删除）
         if feishu_webhook:
             try:
+                now = get_beijing_time()
                 response = requests.post(
                     feishu_webhook,
                     headers={"Content-Type": "application/json"},
