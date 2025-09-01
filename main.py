@@ -2717,6 +2717,7 @@ def send_to_feishu(
             webhook_url, headers=headers, json=payload, proxies=proxies, timeout=30
         )
         if response.status_code == 200:
+            print(f"给飞书发送的消息如下：\n{text_content}")   # add
             print(f"飞书通知发送成功 [{report_type}]")
             return True
         else:
@@ -3138,6 +3139,10 @@ class NewsAnalyzer:
     ) -> bool:
         """统一的通知发送逻辑，包含所有判断条件"""
         has_webhook = self._has_webhook_configured()
+
+
+
+        # add
         # 临时添加：强制发送飞书测试消息
         import requests
         import json
@@ -3152,6 +3157,11 @@ class NewsAnalyzer:
                 print(f"飞书测试消息发送结果：{response.status_code}")
             except Exception as e:
                 print(f"飞书测试消息发送失败：{str(e)}")
+
+
+
+
+        # add
 
         if (
             CONFIG["ENABLE_NOTIFICATION"]
