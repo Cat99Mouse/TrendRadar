@@ -2717,7 +2717,7 @@ def send_to_feishu(
             webhook_url, headers=headers, json=payload, proxies=proxies, timeout=30
         )
         if response.status_code == 200:
-            print(f"给飞书发送的消息如下：\n{text_content}")   # add
+            print(f"给飞书发送的消息如下：\n{payload}")   # add
             print(f"飞书通知发送成功 [{report_type}]")
             return True
         else:
